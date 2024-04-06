@@ -1,11 +1,11 @@
 #ifndef FASEGAME_HPP
 #define FASEGAME_HPP
 
-#include "ASCII_Engine/Fase.hpp"
-#include "ASCII_Engine/ObjetoDeJogo.hpp"
-#include "ASCII_Engine/Sprite.hpp"
-#include "ASCII_Engine/SpriteBuffer.hpp"
-#include "Copo.hpp"
+#include "../ASCII_Engine/Fase.hpp"
+#include "../ASCII_Engine/ObjetoDeJogo.hpp"
+#include "../ASCII_Engine/Sprite.hpp"
+#include "../ASCII_Engine/SpriteBuffer.hpp"
+#include "../classes/Copo.hpp"
 
 #include <thread>
 #include <chrono>

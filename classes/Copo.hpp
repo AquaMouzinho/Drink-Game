@@ -1,7 +1,7 @@
 #ifndef COPO_HPP
 #define COPO_HPP
 
-#include "ASCII_Engine/ObjetoDeJogo.hpp"
+#include "../ASCII_Engine/ObjetoDeJogo.hpp"
 
 class Copo : public ObjetoDeJogo {
 public:

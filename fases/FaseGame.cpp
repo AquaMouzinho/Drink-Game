@@ -1,7 +1,7 @@
 #include "FaseGame.hpp"
-#include "Xicara.hpp"
-#include "Jarra.hpp"
-#include "Prato.hpp"
+#include "../classes/Xicara.hpp"
+#include "../classes/Jarra.hpp"
+#include "../classes/Prato.hpp"
 #include <termios.h>
 #include <unistd.h>
 using std::ref;
@@ -9,12 +9,12 @@ using std::ref;
 #define TIME 60000
 
 void FaseGame::init() {
-    objs.push_back(new ObjetoDeJogo("balaoIdeal", Sprite("src/balao.img"),20,69));
+    objs.push_back(new ObjetoDeJogo("balaoIdeal", Sprite("src/sprites/balao.img"),20,69));
 
-    objs.push_back(new ObjetoDeJogo("npc",Sprite("src/personagens/personagem_0.img"),24,52));
+    objs.push_back(new ObjetoDeJogo("npc",Sprite("src/sprites/personagens/personagem_0.img"),24,52));
     spriteNPC = objs.back()->getSprite();
 
-    objs.push_back(new ObjetoDeJogo("torneira", Sprite("src/torneira/torneira_0.img"),11,103));
+    objs.push_back(new ObjetoDeJogo("torneira", Sprite("src/sprites/torneira/torneira_0.img"),11,103));
     spriteTorneira = objs.back()->getSprite();
 
     objs.push_back(new ObjetoDeJogo("txtTempo", TextSprite("60s"),9,56));
@@ -36,7 +36,7 @@ void FaseGame::init() {
     objs.push_back(new ObjetoDeJogo("txtMLMaximo", TextSprite(std::to_string(copoAtual->getLimiteMaximo()).substr(0,4)),34,106));
     txtMlMaximo = objs.back()->getSprite();
 
-    // objs.push_back(new ObjetoDeJogo("displayEncerrado", Sprite("src/display_encerrado.img"),15,46));
+    // objs.push_back(new ObjetoDeJogo("displayEncerrado", Sprite("src/sprites/display_encerrado.img"),15,46));
     // display = objs.back();
     // display->desativarObj();
 
@@ -61,7 +61,7 @@ unsigned FaseGame::run(SpriteBuffer &screen){
                     {
                         std::cout << "apertou" << entrada <<std::endl;
                         isTransbordou = false;
-                        spriteTorneira->putAt(Sprite("src/torneira/torneira_1.img"),0,0);
+                        spriteTorneira->putAt(Sprite("src/sprites/torneira/torneira_1.img"),0,0);
                         spriteTorneira->update();
 
                         while(!isKeyPressed() && !isTransbordou){
@@ -92,7 +92,7 @@ unsigned FaseGame::run(SpriteBuffer &screen){
                         }
                         
                         keyPressed = false;
-                        spriteTorneira->putAt(Sprite("src/torneira/torneira_0.img"),0,0);
+                        spriteTorneira->putAt(Sprite("src/sprites/torneira/torneira_0.img"),0,0);
                         spriteTorneira->update();
                         if(!isTransbordou)
                             coposPreenchidos++;
@@ -152,7 +152,7 @@ unsigned FaseGame::run(SpriteBuffer &screen){
 void FaseGame::aleatorizarNPC(SpriteBase *s){
     srandom(time(NULL));
     unsigned numNPC = 0 + rand()%5;
-    s->putAt(Sprite("src/personagens/personagem_"+std::to_string(numNPC)+".img"), 0, 0);
+    s->putAt(Sprite("src/sprites/personagens/personagem_"+std::to_string(numNPC)+".img"), 0, 0);
     s->update();
 }
 
@@ -163,16 +163,16 @@ Copo* FaseGame::gerarCopo(){
     switch (tipoCopo)
     {
         case 1:
-            c = (new Prato(ObjetoDeJogo("Prato",Sprite("src/prato/prato_0.img"),28, 100), 50.0 + rand()%100));
+            c = (new Prato(ObjetoDeJogo("Prato",Sprite("src/sprites/prato/prato_0.img"),28, 100), 50.0 + rand()%100));
             break;
         case 2:
-            c = (new Xicara(ObjetoDeJogo("Xicara",Sprite("src/xicara/xicara_0.img"),26, 100), 100.0 + rand()%250));
+            c = (new Xicara(ObjetoDeJogo("Xicara",Sprite("src/sprites/xicara/xicara_0.img"),26, 100), 100.0 + rand()%250));
             break;
     // case 3:
-    //     c = (new Jarra(ObjetoDeJogo("Jarra",Sprite("src/jarra/jarra_0.img"),21, 100), 800.0 + rand()%1100));
+    //     c = (new Jarra(ObjetoDeJogo("Jarra",Sprite("src/sprites/jarra/jarra_0.img"),21, 100), 800.0 + rand()%1100));
     //     break;
         default:
-            c = (new Copo(ObjetoDeJogo("Copo",Sprite("src/copo/copo_0.img"),24, 100), 100.0 + rand()%350));
+            c = (new Copo(ObjetoDeJogo("Copo",Sprite("src/sprites/copo/copo_0.img"),24, 100), 100.0 + rand()%350));
             break;
     }
     return c;

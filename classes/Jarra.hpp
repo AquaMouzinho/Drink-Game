@@ -1,7 +1,7 @@
 #ifndef JARRA_HPP
 #define JARRA_HPP
 
-#include "ASCII_Engine/ObjetoDeJogo.hpp"
+#include "../ASCII_Engine/ObjetoDeJogo.hpp"
 #include "Copo.hpp"
 
 class Jarra : public Copo {

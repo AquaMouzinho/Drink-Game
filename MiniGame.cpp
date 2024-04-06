@@ -1,6 +1,6 @@
 #include "MiniGame.hpp"
-#include "FaseGame.hpp"
-#include "FaseMenu.hpp"
+#include "fases/FaseGame.hpp"
+#include "fases/FaseMenu.hpp"
 #include "ASCII_Engine/Sprite.hpp"
 #include "ASCII_Engine/SpriteBuffer.hpp"
 #include "ASCII_Engine/Fase.hpp"
@@ -8,7 +8,7 @@
 SpriteBuffer MiniGame::screen(161, 40);
 
 void MiniGame::run(){
-    FaseMenu fase("FaseMenu", Sprite("src/menuBackground.img"));
+    FaseMenu fase("FaseMenu", Sprite("src/sprites/menuBackground.img"));
     fase.init();
     unsigned state = Fase::MENU;
     unsigned level = Fase::LEVEL_1;
@@ -24,7 +24,7 @@ void MiniGame::run(){
             {
 				if (level == Fase::LEVEL_1)
 				{
-					FaseGame level("Game",Sprite("src/gameBackground.img"));
+					FaseGame level("Game",Sprite("src/sprites/gameBackground.img"));
 					level.init();
 					state = level.run(screen);
 				} 

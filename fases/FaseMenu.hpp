@@ -1,10 +1,10 @@
 #ifndef FASEMENU_HPP
 #define FASEMENU_HPP
 
-#include "ASCII_Engine/ObjetoDeJogo.hpp"
-#include "ASCII_Engine/Fase.hpp"
-#include "ASCII_Engine/Sprite.hpp"
-#include "ASCII_Engine/SpriteBuffer.hpp"
+#include "../ASCII_Engine/ObjetoDeJogo.hpp"
+#include "../ASCII_Engine/Fase.hpp"
+#include "../ASCII_Engine/Sprite.hpp"
+#include "../ASCII_Engine/SpriteBuffer.hpp"
 
 #include <chrono>
 #include <thread>
